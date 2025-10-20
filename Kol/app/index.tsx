@@ -16,7 +16,7 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/icon.png")}
+        source={require("../assets/images/logo.png")}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -27,7 +27,7 @@ export default function SplashScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF", 
+    backgroundColor: "#000000ff", 
     justifyContent: "center",
     alignItems: "center",
   },
