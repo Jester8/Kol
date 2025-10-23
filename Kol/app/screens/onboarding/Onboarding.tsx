@@ -99,10 +99,33 @@ export default function Onboarding() {
     if (step < steps.length) {
       setStep(step + 1);
     } else {
+      // Industry step - check role and navigate accordingly
       setLoading(true);
       try {
-        console.log("Form submitted:", formData);
-        router.push("/");
+        if (formData.role === "Individual") {
+          // Navigate to individual onboarding
+          router.push({
+            pathname: "/screens/User/Individual",
+            params: {
+              name: formData.name,
+              email: formData.email,
+              role: formData.role,
+              industry: formData.industry,
+            },
+          });
+        } else if (formData.role === "Key Opinion Leader") {
+          // Navigate to KOL onboarding
+          console.log("Form submitted:", formData);
+          router.push({
+            pathname: "/screens/onboarding/Kol",
+            params: {
+              name: formData.name,
+              email: formData.email,
+              role: formData.role,
+              industry: formData.industry,
+            },
+          });
+        }
       } catch (error) {
         alert("Error completing onboarding");
       } finally {
